@@ -68,7 +68,9 @@ cpdefine("inline:com-chilipeppr-workspace-tes2", ["chilipeppr_ready"], function(
                 setTimeout(function() { $(window).trigger('resize'); }, 100);
             });
             
-            this.loadLuaEditorWidget();
+            this.load3dviewerWidget();
+            
+            this.loadaxesWidget();
             
             
             this.loadTemplateWidget();
@@ -175,24 +177,49 @@ cpdefine("inline:com-chilipeppr-workspace-tes2", ["chilipeppr_ready"], function(
         },
         
         /**
-         * Load the Lua Editor widget via chilipeppr.load()
+         * Load the 3dviewer widget via chilipeppr.load()
          */
-        loadLuaEditorWidget: function(callback) {
+        load3dviewerWidget: function(callback) {
 
             var that = this;
 
            chilipeppr.load(
-              "#com-chilipeppr-widget-luaeditor-instance",
-              "http://raw.githubusercontent.com/chilipeppr/widget-luaeditor/master/auto-generated-widget.html",
+              "#com-chilipeppr-widget-3dviewer-instance",
+              "http://raw.githubusercontent.com/chilipeppr/widget-3dviewer/master/auto-generated-widget.html",
               function() {
-                // Callback after widget loaded into #myDivWidgetLuaeditor
+                // Callback after widget loaded into #myDivWidget3dviewer
                 // Now use require.js to get reference to instantiated widget
                 cprequire(
-                  ["inline:com-chilipeppr-widget-luaeditor"], // the id you gave your widget
-                  function(myObjWidgetLuaeditor) {
+                  ["inline:com-chilipeppr-widget-3dviewer"], // the id you gave your widget
+                  function(myObjWidget3dviewer) {
                     // Callback that is passed reference to the newly loaded widget
-                    console.log("Widget / Lua Editor just got loaded.", myObjWidgetLuaeditor);
-                    myObjWidgetLuaeditor.init();
+                    console.log("Widget / 3D GCode Viewer just got loaded.", myObjWidget3dviewer);
+                    myObjWidget3dviewer.init();
+                  }
+                );
+              }
+            );
+        },
+        
+         /**
+         * Load the axes widget via chilipeppr.load()
+         */
+        loadaxesWidget: function(callback) {
+
+            var that = this;
+
+            chilipeppr.load(
+              "#com-chilipeppr-widget-myDivWidgetXyz-instance",
+              "http://raw.githubusercontent.com/chilipeppr/widget-axes/master/auto-generated-widget.html",
+              function() {
+                // Callback after widget loaded into #myDivWidgetXyz
+                // Now use require.js to get reference to instantiated widget
+                cprequire(
+                  ["inline:com-chilipeppr-widget-xyz"], // the id you gave your widget
+                  function(myObjWidgetXyz) {
+                    // Callback that is passed reference to the newly loaded widget
+                    console.log("Widget / XYZ Axes v2 just got loaded.", myObjWidgetXyz);
+                    myObjWidgetXyz.init();
                   }
                 );
               }
