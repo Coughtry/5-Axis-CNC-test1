@@ -72,6 +72,8 @@ cpdefine("inline:com-chilipeppr-workspace-tes2", ["chilipeppr_ready"], function(
             
             this.loadaxesWidget();
             
+            this.loadaxiseditWidget();
+            
             
             this.loadTemplateWidget();
             
@@ -255,6 +257,29 @@ cpdefine("inline:com-chilipeppr-workspace-tes2", ["chilipeppr_ready"], function(
                         }
                     );
                 }
+            );
+        },
+        
+        /**
+         * Load the axisedit widget via chilipeppr.load()
+         */
+        loadaxiseditWidget: function(callback) {
+            var that = this;
+            chilipeppr.load(
+              "com-chilipeppr-widget-axisedit-instance",
+              "http://raw.githubusercontent.com/Coughtry/widget-axes/master/auto-generated-widget.html",
+              function() {
+                // Callback after widget loaded into #myDivWidgetXyz
+                // Now use require.js to get reference to instantiated widget
+                cprequire(
+                  ["inline:com-chilipeppr-widget-xyz"], // the id you gave your widget
+                  function(myObjWidgetXyz) {
+                    // Callback that is passed reference to the newly loaded widget
+                    console.log("Widget / XYZ Axes v3 just got loaded.", myObjWidgetXyz);
+                    myObjWidgetXyz.init();
+                  }
+                );
+              }
             );
         },
         /**
