@@ -70,7 +70,7 @@ cpdefine("inline:com-chilipeppr-workspace-tes2", ["chilipeppr_ready"], function(
             
             this.load3dviewerWidget();
             
-            this.loadaxesWidget();
+            
             
             this.loadaxiseditWidget();
             
@@ -203,30 +203,7 @@ cpdefine("inline:com-chilipeppr-workspace-tes2", ["chilipeppr_ready"], function(
             );
         },
         
-         /**
-         * Load the axes widget via chilipeppr.load()
-         */
-        loadaxesWidget: function(callback) {
-
-            var that = this;
-
-            chilipeppr.load(
-              "#com-chilipeppr-widget-myDivWidgetXyz-instance",
-              "http://raw.githubusercontent.com/chilipeppr/widget-axes/master/auto-generated-widget.html",
-              function() {
-                // Callback after widget loaded into #myDivWidgetXyz
-                // Now use require.js to get reference to instantiated widget
-                cprequire(
-                  ["inline:com-chilipeppr-widget-xyz"], // the id you gave your widget
-                  function(myObjWidgetXyz) {
-                    // Callback that is passed reference to the newly loaded widget
-                    console.log("Widget / XYZ Axes v2 just got loaded.", myObjWidgetXyz);
-                    myObjWidgetXyz.init();
-                  }
-                );
-              }
-            );
-        },
+        
         
         /**
          * Load the Console widget via chilipeppr.load()
@@ -266,22 +243,23 @@ cpdefine("inline:com-chilipeppr-workspace-tes2", ["chilipeppr_ready"], function(
         loadaxiseditWidget: function(callback) {
             var that = this;
             chilipeppr.load(
-              "com-chilipeppr-widget-axisedit-instance",
+              "#com-chilipeppr-widget-myDivWidgetabc-instance",
               "http://raw.githubusercontent.com/Coughtry/widget-axes/master/auto-generated-widget.html",
               function() {
-                // Callback after widget loaded into #myDivWidgetXyz
+                // Callback after widget loaded into #myDivWidgetabc
                 // Now use require.js to get reference to instantiated widget
                 cprequire(
-                  ["inline:com-chilipeppr-widget-xyz"], // the id you gave your widget
-                  function(myObjWidgetXyz) {
+                  ["inline:com-chilipeppr-widget-abc"], // the id you gave your widget
+                  function(myObjWidgetabc) {
                     // Callback that is passed reference to the newly loaded widget
-                    console.log("Widget / XYZ Axes v3 just got loaded.", myObjWidgetXyz);
-                    myObjWidgetXyz.init();
+                    console.log("Widget / abc Axes v3 just got loaded.", myObjWidgetabc);
+                    myObjWidgetabc.init();
                   }
                 );
               }
             );
         },
+       
         /**
          * Load the workspace menu and show the pubsubviewer and fork links using
          * our pubsubviewer widget that makes those links for us.
