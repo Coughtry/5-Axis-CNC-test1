@@ -72,7 +72,7 @@ cpdefine("inline:com-chilipeppr-workspace-test2", ["chilipeppr_ready"], function
             
             
             
-            this.loadaxiseditWidget();
+            this.loadmyDivWidgetXyzWidget();
             
             
             this.loadTemplateWidget();
@@ -238,28 +238,30 @@ cpdefine("inline:com-chilipeppr-workspace-test2", ["chilipeppr_ready"], function
         },
         
         /**
-         * Load the axisedit widget via chilipeppr.load()
+         * Load the Axes1 widget via chilipeppr.load()
          */
-        loadaxiseditWidget: function(callback) {
+        loadmyDivWidgetXyzWidget: function(callback) {
+
             var that = this;
+
             chilipeppr.load(
-              "#com-chilipeppr-widget-myDivWidgetabc-instance",
-              "http://raw.githubusercontent.com/Coughtry/widget-axes/master/auto-generated-widget.html",
-              function() {
-                // Callback after widget loaded into #myDivWidgetabc
-                // Now use require.js to get reference to instantiated widget
-                cprequire(
-                  ["inline:com-chilipeppr-widget-abc"], // the id you gave your widget
-                  function(myObjWidgetabc) {
-                    // Callback that is passed reference to the newly loaded widget
-                    console.log("Widget / abc Axes v3 just got loaded.", myObjWidgetabc);
-                    myObjWidgetabc.init();
+                  "#com-chilipeppr-widget-myDivWidgetXyz-instance",
+                  "http://raw.githubusercontent.com/Coughtry/widget-axes/master/auto-generated-widget.html",
+                  function() {
+                    // Callback after widget loaded into #myDivWidgetXyz
+                    // Now use require.js to get reference to instantiated widget
+                    cprequire(
+                      ["inline:com-chilipeppr-widget-xyz"], // the id you gave your widget
+                      function(myObjWidgetXyz) {
+                        // Callback that is passed reference to the newly loaded widget
+                        console.log("Widget / XYZ axes2 v2 just got loaded.", myObjWidgetXyz);
+                        myObjWidgetXyz.init();
+                      }
+                    );
                   }
                 );
-              }
-            );
         },
-       
+        
         /**
          * Load the workspace menu and show the pubsubviewer and fork links using
          * our pubsubviewer widget that makes those links for us.
