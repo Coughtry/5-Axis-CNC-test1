@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-//widget is broken; add 3 dviewer to work.  Widg covers others..//
+
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
@@ -20,6 +20,7 @@
     border:2px silver dashed;
     border-radius:4px;
     padding:10px;
+    
 }
 
 .com-chilipeppr-ws-hdr {
@@ -31,7 +32,7 @@
     padding-right:5px;
 }
 .col-nopadrt {
-    padding-right:0;    
+    padding-left:0px;    
 }
 
 .col-nopadleft {
@@ -46,19 +47,19 @@
     padding: 6px 20px;
 }
 .billboard-title {
-    margin-bottom:6px;
+    margin-bottom:20px;
 }
 .billboard-url {
     /* font-size: 9px; */
-    padding-top:0px;
-    margin-bottom:6px;
+    padding-top:0;
+    margin-bottom:20px;
     font-size:12px;
 }
 .billboard-img {
     border:0px solid red;
     border-radius: 5px;
     position: relative;
-    width:100%;
+    width:600px;
     height:160px;
     background-position: center;
     background-size: cover;
@@ -162,7 +163,7 @@ cpdefine("inline:com-chilipeppr-workspace-test2", ["chilipeppr_ready"], function
             
             this.load3dviewerWidget();
             
-            
+            this.loadmyDivWidgetGcodeWidget();
             
             this.loadmyDivWidgetXyzWidget();
             
@@ -246,7 +247,7 @@ cpdefine("inline:com-chilipeppr-workspace-test2", ["chilipeppr_ready"], function
 
             chilipeppr.load(
                 "#com-chilipeppr-widget-serialport-instance",
-                "http://fiddle.jshell.net/chilipeppr/vetj5fvx/show/light/",
+                "http://http://jsfiddle.net/Coughtry/mz05dums/",
                 function() {
                     console.log("mycallback got called after loading spjs module");
                     cprequire(["inline:com-chilipeppr-widget-serialport"], function(spjs) {
@@ -267,6 +268,32 @@ cpdefine("inline:com-chilipeppr-workspace-test2", ["chilipeppr_ready"], function
 
                     });
                 }
+            );
+        },
+        
+        
+         /**
+         * Load the Gcode widget via chilipeppr.load()
+         */
+        loadmyDivWidgetGcodeWidget: function(callback) {
+
+            var that = this;
+
+            chilipeppr.load(
+              "#com-chilipeppr-widget-myDivWidgetGcode-instance",
+              "http://raw.githubusercontent.com/chilipeppr/widget-gcodelist/master/auto-generated-widget.html",
+              function() {
+                // Callback after widget loaded into #myDivWidgetGcode
+                // Now use require.js to get reference to instantiated widget
+                cprequire(
+                  ["inline:com-chilipeppr-widget-gcode"], // the id you gave your widget
+                  function(myObjWidgetGcode) {
+                    // Callback that is passed reference to the newly loaded widget
+                    console.log("Widget / Gcode v8 just got loaded.", myObjWidgetGcode);
+                    myObjWidgetGcode.init();
+                  }
+                );
+              }
             );
         },
         
@@ -385,6 +412,9 @@ cpdefine("inline:com-chilipeppr-workspace-test2", ["chilipeppr_ready"], function
     //]]>
     </script>
 
+
+
+
 </head>
 
 <body>
@@ -403,7 +433,7 @@ cpdefine("inline:com-chilipeppr-workspace-test2", ["chilipeppr_ready"], function
 
                     <div class="com-chilipeppr-ws-hdr well">
                         
-                        Workspace - test2
+                        Workspace - test1
 
                         <div class="com-chilipeppr-ws-menu pull-right">
                             <div class="btn-group">
@@ -425,42 +455,57 @@ cpdefine("inline:com-chilipeppr-workspace-test2", ["chilipeppr_ready"], function
 
                     </div>
 
-                    <div id="com-chilipeppr-widget-WidgetX-instance">
-                        <p class="sample">WidgetX goes here</p>
-                    </div>
+                    
+  
+                     <div id="com-chilipeppr-widget-serialport-instance">
+                        <p class="sample">serialport goes here</p>
+                    </div>                  
+                    
+                    
                     
                     <div id="com-chilipeppr-widget-template-instance">
                         <p class="sample">Template Widget goes here</p>
                     </div>
 
                     <div id="com-chilipeppr-widget-spconsole-instance">
-                        Serial Port Console goes here.
+                        <p class="sample">Serial Port Console goes here</p>
                     </div>
+                    
+                    
+                    <div id="com-chilipeppr-widget-myDivWidgetGcode-instance">
+                                <p class="sample">Gcode goes here</p>
+                             </div>
+
+
 
                 </div>
 
+
                 <!-- Center Column -->
-                <div class="col-md-4 col-pad10">
-                    <div id="com-chilipeppr-widget-3dviewer-instance">
+                <div class="col-md-4 col-pad10;">
+                <div style=z-"index:1"></div>
+                    
+                            <div id="com-chilipeppr-widget-3dviewer-instance">
+                                <p class="sample">3dviewer goes here</p>
                         
-                        <p class="sample" style="min-height:100px;">Hello 3dviewer goes here</p>
-                    </div>
+                       
+                            </div>
                 </div>
 
                 <!-- Right Column -->
-                <div class="col-md-3 col-pad10">
-                    <div id="com-chilipeppr-widget-myDivWidgetXyz-instance">
-                <p class="sample">Axes1 goes here</p>
-                </div>
-                <div class="col-md-3 col-pad10">
-                    </div>
-                    <div id="com-chilipeppr-widget-serialport-instance">
-                        Widget 3 goes here
-                    </div>
+                <div class="col-md-4 col-pad10;
+                style=z-index: 2;">
                     
-                    <div id="mywidget3-instance">
-                        <p class="sample">Widget 3 goes here</p>
-                    </div>
+                            <div id="com-chilipeppr-widget-myDivWidgetXyz-instance">
+                            <p class="sample">Axes1 goes here</p>
+                            </div>
+                
+                    
+                            
+                            
+                            <div id="com-chilipeppr-widget-serialport-instance">
+                            <p class="sample">serialport goes here</p>
+                            </div>
 
                 </div>
 

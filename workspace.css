@@ -4,6 +4,7 @@
     border:2px silver dashed;
     border-radius:4px;
     padding:10px;
+    
 }
 
 .com-chilipeppr-ws-hdr {
@@ -15,7 +16,7 @@
     padding-right:5px;
 }
 .col-nopadrt {
-    padding-right:0;    
+    padding-left:0px;    
 }
 
 .col-nopadleft {
@@ -30,19 +31,19 @@
     padding: 6px 20px;
 }
 .billboard-title {
-    margin-bottom:6px;
+    margin-bottom:20px;
 }
 .billboard-url {
     /* font-size: 9px; */
-    padding-top:0px;
-    margin-bottom:6px;
+    padding-top:0;
+    margin-bottom:20px;
     font-size:12px;
 }
 .billboard-img {
     border:0px solid red;
     border-radius: 5px;
     position: relative;
-    width:100%;
+    width:600px;
     height:160px;
     background-position: center;
     background-size: cover;
