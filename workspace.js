@@ -154,7 +154,7 @@ cpdefine("inline:com-chilipeppr-workspace-test2", ["chilipeppr_ready"], function
 
             chilipeppr.load(
                 "#com-chilipeppr-widget-serialport-instance",
-                "http://http://jsfiddle.net/Coughtry/mz05dums/",
+                "http://fiddle.jshell.net/chilipeppr/vetj5fvx/show/light/",
                 function() {
                     console.log("mycallback got called after loading spjs module");
                     cprequire(["inline:com-chilipeppr-widget-serialport"], function(spjs) {
